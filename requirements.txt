@@ -1,0 +1,17 @@
+# ONVIF Proxy Server Requirements
+# Python 3.10+
+
+# Core ONVIF library
+onvif-zeep==0.2.12
+
+# Web framework for proxy server
+Flask==3.1.2
+
+# XML processing for SOAP messages
+lxml==5.1.0
+
+# SOAP client (dependency of onvif-zeep)
+zeep==4.3.2
+
+# HTTP requests (dependency of zeep)
+requests==2.32.3

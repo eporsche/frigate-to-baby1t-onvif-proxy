@@ -1,0 +1,37 @@
+services:
+  onvif-proxy:
+    build: .
+    container_name: onvif-proxy
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # You can override .env values here if needed
+      - CAMERA_IP=${CAMERA_IP}
+      - CAMERA_PORT=${CAMERA_PORT}
+      - CAMERA_USER=${CAMERA_USER}
+      - CAMERA_PASS=${CAMERA_PASS}
+      - WSDL_DIR=${WSDL_DIR}
+      - PROXY_HOST=${PROXY_HOST}
+      - PROXY_PORT=${PROXY_PORT}
+      - PROXY_EXTERNAL_HOST=${PROXY_EXTERNAL_HOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+    networks:
+      - onvif-network
+    # Uncomment if you want to use host network mode instead
+    # This can be useful for network discovery
+    # network_mode: host
+
+    # Health check to ensure service is running
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import requests; requests.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  onvif-network:
+    driver: bridge

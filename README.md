@@ -17,7 +17,7 @@ source .venv\bin\activate
 python3 -m pip install -r requirements.txt
 ```
 
-Copy the .env.example to .env and configure it with your credentials and uris.
+Copy the .env.example to .env and configure it with your credentials and ip addresses.
 
 # Use with onvif client
 

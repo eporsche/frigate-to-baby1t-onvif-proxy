@@ -35,7 +35,7 @@ python3 ptz_server.py
 ```
 
 ## Examples:
-  - http://127.0.0.1:5001/ptz/uo?speed=0.3&duration=1.0
+  - http://127.0.0.1:5001/ptz/up?speed=0.3&duration=1.0
   - http://127.0.0.1:5001/ptz/down?speed=0.3&duration=1.0
   - http://127.0.0.1:5001/ptz/left?speed=0.3&duration=1.0
   - http://127.0.0.1:5001/ptz/right?speed=0.3&duration=1.0
